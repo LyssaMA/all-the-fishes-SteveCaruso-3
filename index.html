@@ -105,7 +105,7 @@
 
 <body>
     <script type="module">
-        
+
         const app = new PIXI.Application();
         await app.init({
             width: 800,
@@ -113,7 +113,7 @@
             backgroundColor: 0x87CEEB // Light blue for water
         });
 
-      
+
         document.body.appendChild(app.canvas);
 
         // Load assets
@@ -240,9 +240,9 @@
             fish3.y = 525 + Math.sin(counter / 20) * 20;
             fish3.scale.x = (Math.sin(counter / 4) * .005) + .25;
 
-            // Rotation Fish 3 
-            fish3.rotation = Math.sin(counter / 20) * 0.2;   
-          
+            // Fish 3 Rotation
+            fish3.rotation = Math.sin(counter / 20) * 0.2;
+
             console.log('Fish 3 rotation:', fish3.rotation);
 
             // Fish 4 Animation (up and down)
@@ -252,10 +252,10 @@
             fish5.y = (Math.sin(counter / 40) * 20) + 375;
             fish5.scale.x = (Math.sin(counter / 4) * .003) + .2;
 
-            // Alpha animation Fish 5 (fading in and out)
+            // Alpha animation Fish 5 (transparency)
             fish5.alpha = (Math.sin(counter / 100) * 0.5) + 0.5;
 
-            // Rotation animation Fish 5
+            //  Fish 5 Rotation
             fish5.rotation = Math.sin(counter / 100) * 0.1;
 
             // Bubble Animation
@@ -275,23 +275,23 @@
         // Swim 
         function swimToSurface(fish) {
             const originalY = fish.y;
-            const targetY = originalY - 100; 
-            let direction = 1; 
-            let speed = 0.5; 
+            const targetY = originalY - 100;
+            let direction = 1;
+            let speed = 0.5;
 
             const swimAnimation = () => {
                 if (direction === 1) {
                     fish.y -= speed;
-                    if (fish.y <= targetY) direction = -1; 
-                    fish.y += speed; 
+                    if (fish.y <= targetY) direction = -1;
+                    fish.y += speed;
                     if (fish.y >= originalY) {
-                        fish.y = originalY; 
-                        return; 
+                        fish.y = originalY;
+                        return;
                     }
                 }
-                requestAnimationFrame(swimAnimation); 
+                requestAnimationFrame(swimAnimation);
             };
-            swimAnimation(); 
+            swimAnimation();
         }
 
         // All fish interactive - swimming 
@@ -341,6 +341,3 @@
 </body>
 
 </html>
-
-
-
